@@ -1,0 +1,26 @@
+{
+  "name": "my-portfolio-api",
+  "version": "1.0.0",
+  "description": "API with all my portfolio projects",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valerio-figueira/portfolio-API.git"
+  },
+  "author": "Valerio Figueira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valerio-figueira/portfolio-API/issues"
+  },
+  "homepage": "https://github.com/valerio-figueira/portfolio-API#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0",
+    "serverless-http": "^3.1.0"
+  }
+}
