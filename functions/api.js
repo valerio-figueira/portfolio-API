@@ -25,9 +25,10 @@ require("dotenv").config();
             app.use(express.json());
 
             // MIDDLEWARE TO REDIRECT ALL ENTRIES POINTS TO THEIR RESPECTIVELY ROUTES
-            /* ALL ROUTES GOES INSIDE HERE */
+            app.use("/projects", require("./routes/Projects"));
 
 
+            // THIS IS NECESSARY TO APPLY SERVERLESS
             const router = express.Router();
 
 
@@ -38,8 +39,27 @@ router.get("/", cors(), (req, res) => {
     })
 })
 
+// SERVE IMAGES
+router.get('/imgs/:name', cors(), (req, res) => {
+    res.sendFile(req.params.name)
+})
+
 
 
 app.use("/", router);
+
+
+    // MONGODB CONNECT
+    const DB_USER = process.env.DB_USER;
+    const DB_PASSWORD = process.env.DB_PASSWORD;
+
+    mongoose.Promise = global.Promise;
+    mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.vimpoeg.mongodb.net/my_portfolio?retryWrites=true&w=majority`).then(() => {
+        console.log('Connected with MongoDB!')
+    }).catch((error) => {
+        console.log("Fail to connect with MongoDB: " + error);
+    });
+
+
 
 module.exports.handler = serverless(app);
