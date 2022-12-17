@@ -1,20 +1,20 @@
 const router = require("express").Router();
-const Projects = require("../models/Projects");
+const Project = require("../models/Projects");
 
 
 // CREATE
 router.post("/", async (req, res) => {
-    const {title, description, content, image} = req.body;
+    const {title, description, image, url} = req.body;
 
     const project = {
         title,
         description,
-        content,
-        image
+        image,
+        url
     }
 
     try{
-        await Projects.create(project);
+        await Project.create(project);
 
         res.status(201).json({message: "Project registered successfully"})
     } catch(error){
@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
 // READ
 router.get("/", async (req, res) => {
     try{
-        const projects = await Projects.find();
+        const projects = await Project.find();
 
         res.status(200).json(projects);
     } catch(error){
@@ -36,7 +36,7 @@ router.get("/", async (req, res) => {
 // READ ONE
 router.get("/:id", async (req, res) => {
     try{
-        await Projects.findOne({_id: req.params.id}).lean().then(project => {
+        await Project.findOne({_id: req.params.id}).lean().then(project => {
             if(project){
                 res.status(200).json(post)
             }

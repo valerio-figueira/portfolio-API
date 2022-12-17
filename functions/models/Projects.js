@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Project = mongoose.model("Projects", {
+const Project = mongoose.model("projects", {
     title: {
         type: String,
         required: true

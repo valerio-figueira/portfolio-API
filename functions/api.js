@@ -10,7 +10,7 @@ require("dotenv").config();
             // MIDDLEWARE TO ENABLE CORS (CROSS ORIGIN RESOURCE SHARING)
             app.use(cors({
                 origin: "*",
-                methods: ["GET"]
+                methods: ["GET", "POST"]
             }));
 
             // MIDDLEWARE FOR STATIC FILES
@@ -54,7 +54,7 @@ app.use("/", router);
     const DB_PASSWORD = process.env.DB_PASSWORD;
 
     mongoose.Promise = global.Promise;
-    mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.vimpoeg.mongodb.net/my_portfolio?retryWrites=true&w=majority`).then(() => {
+    mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.vimpoeg.mongodb.net/portfolium?retryWrites=true&w=majority`).then(() => {
         console.log('Connected with MongoDB!')
     }).catch((error) => {
         console.log("Fail to connect with MongoDB: " + error);
