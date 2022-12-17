@@ -10,7 +10,7 @@ require("dotenv").config();
             // MIDDLEWARE TO ENABLE CORS (CROSS ORIGIN RESOURCE SHARING)
             app.use(cors({
                 origin: "*",
-                methods: ["GET", "POST"]
+                methods: ["GET"]
             }));
 
             // MIDDLEWARE FOR STATIC FILES

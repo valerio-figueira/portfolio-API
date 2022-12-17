@@ -19,7 +19,7 @@ const Project = mongoose.model("projects", {
     },
     date: {
         type: Date,
-        default: Date.now()
+        default: new Date(Date.now())
     }
 })
 
