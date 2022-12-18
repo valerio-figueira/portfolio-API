@@ -26,6 +26,7 @@ require("dotenv").config();
 
             // MIDDLEWARE TO REDIRECT ALL ENTRIES POINTS TO THEIR RESPECTIVELY ROUTES
             app.use("/projects", require("./routes/Projects"));
+            app.use("/technologies", require("./routes/Technologies"));
 
 
             // THIS IS NECESSARY TO APPLY SERVERLESS

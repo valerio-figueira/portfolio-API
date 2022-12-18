@@ -4,12 +4,12 @@ const Project = require("../models/Projects");
 
 // CREATE
 router.post("/", async (req, res) => {
-    const {title, description, image, url} = req.body;
+    const {title, description, images, url} = req.body;
 
     const project = {
         title,
         description,
-        image,
+        images,
         url
     }
 
