@@ -10,7 +10,7 @@ const Technologies = mongoose.model("technologies", {
         required: true
     },
     references: {
-        type: String,
+        type: [String],
         required: true
     },
     images: {
