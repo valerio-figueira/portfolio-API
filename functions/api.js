@@ -36,7 +36,14 @@ require("dotenv").config();
 // MAIN ROUTES
 router.get("/", cors(), (req, res) => {
     res.json({
-        "Hello": "This is my own API, made to fulfill my Portfolio with projects"
+        "Hello": "This is my own API, constructed with NodeJS and Express to fit in my portfolio webpage.",
+        "Message": "Be welcome to this API! - 18-12-2022. I'm writing this almost in Christmas, and almost in my birthday: 23/12. In this time I'm studying and giving all my forces to learn web development and their technologies.",
+        "Routes": [
+            "https://portfolium-api.netlify.app/projects",
+            "https://portfolium-api.netlify.app/technologies",
+        ],
+        "Portfolium": "https://valerio-figueira.github.io/portfolio/",
+        "Andrew Lang": ["\"Yes,\" said the North Wind, \"I know where it is. I once blew an aspen leaf there, but I was so tired that for many days afterward I was not able to blow at all. However, if you really are anxious to go there, and are not afraid to go with me, I will take you on my back, and try if I can blow you there.\"", "\"Get there I must,\" said she; \"and if there is any way of going I will; and I have no fear, no matter how fast you go.\" - East of the Sun and West of the Moon"]
     })
 })
 
