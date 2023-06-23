@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
 // READ
 router.get("/", async (req, res) => {
     try{
-        const projects = await Project.find().lean().sort({title: "asc"});
+        const projects = await Project.find().lean().sort({ date: -1 });
 
         res.status(200).json(projects);
     } catch(error){
