@@ -24,10 +24,28 @@ router.post("/", async (req, res) => {
 
 // READ
 router.get("/", async (req, res) => {
-    try{
-        const projects = await Project.find().lean().sort({ date: -1 });
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 8;
 
-        res.status(200).json(projects);
+    try{
+        const skip = (page - 1) * limit;
+
+        const totalProjects = await Project.countDocuments();
+
+        const projects = await Project.find()
+            .lean()
+            .sort({ date: -1 })
+            .skip(skip)
+            .limit(limit);
+
+        const totalPages = Math.ceil(totalProjects / limit);
+
+        res.status(200).json({
+            projects,
+            currentPage: page,
+            totalPages,
+            totalProjects,
+        });
     } catch(error){
         res.status(500).json({error: error});
     };

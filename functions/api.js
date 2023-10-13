@@ -37,7 +37,7 @@ require("dotenv").config();
 router.get("/", cors(), (req, res) => {
     res.json({
         "Hello": "This is my own API, constructed with NodeJS and Express to fit in my portfolio webpage.",
-        "Message": "Be welcome to this API! - 18-12-2022. I'm writing this almost in Christmas, and almost in my birthday: 23/12. In this time I'm studying and giving all my forces to learn web development and their technologies.",
+        "Message": "Be welcome to this API! - 18-12-2022. I'm writing this almost in Christmas, and almost in my birthday: 23/12. In this time, I'm dedicating all my efforts to learning web development and its technologies.",
         "Routes": [
             "https://portfolium-api.netlify.app/projects",
             "https://portfolium-api.netlify.app/technologies",
